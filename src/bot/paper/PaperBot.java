@@ -1,17 +1,35 @@
+package bot.paper;
+
 import java.awt.*;
 import java.awt.event.KeyEvent;
-import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
-public class main {
+public class PaperBot {
 
-    static int cont;
-    static int time =  0;
+    private static int count;
+    private static int time = 0;
 
-    public static void main(String[] args) {
+    private static PaperBot instance;
 
-        cont =0;
+    private PaperBot() {
 
+    }
+
+    static {
+        try {
+            instance = new PaperBot();
+        } catch (RuntimeException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static synchronized PaperBot getInstance() {
+        return instance;
+    }
+
+    public void start() {
+
+        count = 0;
 
         Robot r = null;
         try {
@@ -21,10 +39,9 @@ public class main {
         }
 
 
+        while (true) {
 
-        while(true){
-
-            int randomNum = 1500 + (int)(Math.random() * 15000);
+            int randomNum = 1500 + (int) (Math.random() * 15000);
 
             time = 800000 + randomNum;
 
@@ -70,9 +87,7 @@ public class main {
             r.keyRelease(KeyEvent.VK_LEFT);
 
 
-
         }
-
     }
 
 }
