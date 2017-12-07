@@ -1,6 +1,6 @@
-package bot.paper.gui;
+package gui;
 
-import bot.paper.config.Configuration;
+import config.Configuration;
 
 import javax.swing.*;
 import java.awt.*;

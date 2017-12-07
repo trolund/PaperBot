@@ -1,4 +1,6 @@
-package bot.paper.config;
+package config;
+
+import java.util.concurrent.TimeUnit;
 
 public class Configuration {
 
@@ -7,6 +9,8 @@ public class Configuration {
 
     public int width = 1280;
     public int height = 720;
+
+    public boolean isDebugEnabled = true;
 
     private static Configuration instance;
 
@@ -24,6 +28,14 @@ public class Configuration {
 
     public static synchronized Configuration getInstance() {
         return instance;
+    }
+
+    public void sleep(int time) {
+        try {
+            TimeUnit.MICROSECONDS.sleep(time);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 
 }

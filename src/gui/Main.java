@@ -1,6 +1,6 @@
-package bot.paper.gui;
+package gui;
 
-import bot.paper.PaperBot;
+import paperbot.PaperBot;
 
 public class Main {
 
