@@ -24,11 +24,33 @@ public class TestApp {
                 }
             });
 
+
             // send message to websocket
             clientEndPoint.sendMessage(PLAYER_INIT);
 
             // wait 5 seconds for messages from websocket
-           Thread.sleep(2000);
+           Thread.sleep(1000);
+
+           while(true){
+
+               clientEndPoint.sendMessage("KEYPRESS {\"key\":38}");
+
+               Thread.sleep(1000);
+
+               clientEndPoint.sendMessage("KEYPRESS {\"key\":39}");
+
+               Thread.sleep(1000);
+
+               clientEndPoint.sendMessage("KEYPRESS {\"key\":40}");
+
+               Thread.sleep(1000);
+
+               clientEndPoint.sendMessage("KEYPRESS {\"key\":41}");
+
+               Thread.sleep(1000);
+           }
+
+
 
         } catch (InterruptedException ex) {
             System.err.println("InterruptedException exception: " + ex.getMessage());
